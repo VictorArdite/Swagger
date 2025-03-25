@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: API de Usuarios
+  description: Una API sencilla para gestionar usuarios
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /usuarios:
+    get:
+      summary: Obtener la lista de usuarios
+      responses:
+        '200':
+          description: Lista de usuarios
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    nombre:
+                      type: string
+                      example: "Victor Ardite"
+    post:
+      summary: Crear un nuevo usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                  example: "Maria Gonzalez"
+      responses:
+        '201':
+          description: Usuario creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 2
+                  nombre:
+                    type: string
+                    example: "Maria Gonzalez"
